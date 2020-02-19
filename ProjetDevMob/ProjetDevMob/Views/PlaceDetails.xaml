@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjetDevMob.Views.PlaceDetails"
+             Title="{Binding Title}">
+
+    <StackLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Padding="30, 30, 30, 20">
+
+        <Grid
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image
+                Grid.Row="0" 
+                Grid.Column="0"
+                HeightRequest="360"
+                Source="{Binding ImageName}"/>
+
+            <Label
+                HorizontalOptions="CenterAndExpand" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Text="{Binding Heure, StringFormat='Photo prise à : {0}'}"/>
+        </Grid>
+
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            Margin="0, 5, 0, 20">
+            <Label
+                Text="{Binding Name}"
+                FontSize="20"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"/>
+            <Label 
+                Text="{Binding Tag, StringFormat='#{0}'}"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+
+        <Label
+            Text="{Binding Description}"
+            FontSize="18"
+            HorizontalOptions="Start"
+            HeightRequest="250"/>
+        <Label
+            Text="{Binding Coordonnee}"
+            FontSize="12"
+            HorizontalOptions="Start"/>
+        <Label
+            Text="{Binding Adress}"
+            FontSize="16"
+            FontAttributes="Bold"
+            HorizontalOptions="Start"/>
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="End"
+            Margin="0, 0, 20, 0">
+            <Label
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Margin="5, 5, 15, 5"
+                    Text="&#xf2ed;"
+                    FontSize="25"
+                    TextColor="red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                                    Command="{Binding Supprimer}"/>
+                    </Label.GestureRecognizers>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+                    </Label.FontFamily>
+            </Label>
+
+            <Label
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Margin="5, 5, 5, 5"
+                    Text="&#xf5a1;"
+                    FontSize="25"
+                    TextColor="red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                                    Command="{Binding Modifier}"/>
+                    </Label.GestureRecognizers>
+                    <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="ProjetDevMob.Views.MasterPage"
+                  Title="{Binding Title}">
+
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout BackgroundColor="White">
+                <Image Source="logo_appli.png"
+                       WidthRequest="100"
+                       HeightRequest="100"
+                       Margin="0, 10, 0, 0"/>
+
+                <Button Text="&#xf015; Accueil" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   BackgroundColor="White"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Margin="0, 30, 0, 0"
+                   Command="{Binding CommandGoAccueil}">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
+                        Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+                    </Button.FontFamily>   
+                </Button>
+                
+                <ContentView HeightRequest="1" BackgroundColor="Gray" />
+
+                <Button Text="Map" 
+                        FontSize="Medium" 
+                        BackgroundColor="White" 
+                        Margin="0, 30, 0, 0"
+                        Command="{Binding CommandGoMap}" />
+                
+                <Button Text="Liste des lieux" 
+                        FontSize="Medium" 
+                        BackgroundColor="White"  
+                        Command="{Binding CommandGoListePlaces}" />
+                
+                <Button Text="Ajouter lieu" 
+                        FontSize="Medium" 
+                        BackgroundColor="White"  
+                        Margin="0, 0, 0, 30"
+                        Command="{Binding CommandGoNouveau}" />
+
+                <ContentView HeightRequest="1" BackgroundColor="Gray" />
+
+                <Button Text="Gerer mon profil" 
+                        FontSize="Medium" 
+                        BackgroundColor="White"  
+                        Margin="0, 30, 0, 0"
+                        Command="{Binding CommandGererProfil}" />
+
+                <Button Text="Déconnexion" 
+                        FontSize="Medium" 
+                        BackgroundColor="White"  
+                        Margin="0, 0, 0, 30"
+                        Command="{Binding CommandDeconnection}" />
+
+
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>

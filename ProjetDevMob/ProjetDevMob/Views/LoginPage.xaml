@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjetDevMob.Views.LoginPage"
+             BackgroundImage="background2.jpg"
+             Title="{Binding Title}">
+
+
+    <StackLayout
+        HorizontalOptions="FillAndExpand"
+        Margin="30, 200, 30, 30">
+
+        <Frame BackgroundColor="#BF043055" HasShadow="False">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Entry x:Name="Email" 
+                       Text="{Binding UserName}" 
+                       Placeholder="Email"   
+                       PlaceholderColor="White" 
+                       HeightRequest="40"   
+                       Keyboard="Email"  
+                       TextColor="White"/>
+                
+                <Entry x:Name="Password" 
+                       Text="{Binding Password}" 
+                       Placeholder="Password"   
+                       PlaceholderColor="White" 
+                       HeightRequest="40"   
+                       IsPassword="True"  
+                       TextColor="White"/>
+                
+            </StackLayout>
+        </Frame>
+
+        <Button Command="{Binding CommandMovePage}" Text="Login" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+
+        <Label 
+                Text="Vous n'avez pas de compte ?"
+                FontSize="18"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"/>
+        <Button 
+                Text="Inscrivez-vous !"
+                FontSize="12"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"
+                Command="{Binding CommandGoInscription}"/>
+
+    </StackLayout>
+
+</ContentPage>

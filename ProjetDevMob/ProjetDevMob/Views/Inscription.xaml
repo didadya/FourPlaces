@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjetDevMob.Views.Inscription"
+             BackgroundImage="background1.png" 
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Margin="30, 100, 30, 30">
+            <Entry 
+                x:Name="Email" 
+                Placeholder="Email" 
+                Text="{Binding Email}" 
+                Keyboard="Email"
+                TextColor="Black"/>
+
+            <Entry 
+                x:Name="FirstName" 
+                Placeholder="First Name" 
+                Text="{Binding FirstName}" 
+                TextColor="Black"/>
+
+            <Entry 
+                x:Name="LastName" 
+                Placeholder="Last Name" 
+                Text="{Binding LastName}"
+                TextColor="Black"/>
+
+            <Entry 
+                x:Name="Password"
+                Placeholder="Password"
+                Text="{Binding Password}"     
+                IsPassword="True"
+                TextColor="Black"/>
+            
+            <Entry 
+                x:Name="ConfirmPassword" 
+                Placeholder="Re_Enter Password" 
+                Text="{Binding ConfirmPassword}"     
+                IsPassword="True"
+                TextColor="Black"/>
+            
+            
+            <Button 
+                x:Name="signup" 
+                Text="S'inscrire" 
+                HorizontalOptions="EndAndExpand"
+                Margin="0, 25, 0, 0"
+                Command="{Binding InscriptionCommand}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
