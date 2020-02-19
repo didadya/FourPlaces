@@ -1,7 +1,5 @@
 ﻿using Prism;
 using Prism.Ioc;
-using ProjetDevMob.Client;
-using ProjetDevMob.Services;
 using ProjetDevMob.ViewModels;
 using ProjetDevMob.Views;
 using Xamarin.Forms;
@@ -34,7 +32,6 @@ namespace ProjetDevMob
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<ILiteDBClient, LiteDBClient>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
